@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Tasks - Student Reminder & Guidance System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="task-page">
+
+    <main class="task-container">
+
+        <div class="task-header">
+
+            <a href="dashboard.html"
+               class="back-button">
+
+                ← Back to Dashboard
+
+            </a>
+
+            <p class="task-kicker">
+                STUDENT REMINDER & GUIDANCE
+            </p>
+
+            <h1>My Tasks</h1>
+
+            <p>
+                View all your academic tasks and deadlines.
+            </p>
+
+        </div>
+
+
+        <div id="allTasks"
+             class="task-list">
+
+        </div>
+
+
+        <div style="margin-top: 25px;">
+
+            <a href="add-task.html"
+               class="save-task-button">
+
+                + Add New Task
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+<script>
+
+async function loadAllTasks() {
+
+    const token =
+        localStorage.getItem("token");
+
+    if (!token) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/tasks",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization":
+                        "Bearer " + token
+                }
+            }
+        );
+
+
+        const tasks =
+            await response.json();
+
+
+        const allTasks =
+            document.getElementById("allTasks");
+
+
+        allTasks.innerHTML = "";
+
+
+        if (tasks.length === 0) {
+
+            allTasks.innerHTML = `
+
+                <div class="no-tasks">
+
+                    <h3>No tasks found</h3>
+
+                    <p>
+                        Add your first academic task.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        tasks.forEach(task => {
+
+            const deadline =
+                new Date(task.deadline);
+
+
+            const formattedDeadline =
+                deadline.toLocaleString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit"
+                });
+
+
+            const taskItem =
+                document.createElement("div");
+
+
+            taskItem.className =
+                "task-item";
+
+
+            taskItem.innerHTML = `
+
+                <div class="task-check empty">
+                </div>
+
+                <div class="task-information">
+
+                    <h3>${task.title}</h3>
+
+                    <p>
+                        ${task.subject}
+                    </p>
+
+                    <small>
+                        Priority: ${task.priority}
+                        &nbsp; | &nbsp;
+                        Notifications:
+                        ${task.notificationsPerDay}/day
+                    </small>
+
+                </div>
+
+                <div class="task-deadline">
+
+                    ${formattedDeadline}
+
+                </div>
+
+            `;
+
+
+            allTasks.appendChild(taskItem);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading tasks:",
+            error
+        );
+
+    }
+
+}
+
+
+loadAllTasks();
+
+</script>
+
+</body>
+
+</html>

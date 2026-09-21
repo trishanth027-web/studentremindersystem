@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Student Reminder & Guidance System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-symbol">✦</div>
+
+            <div>
+                <h2>Student</h2>
+                <p>Reminder & Guidance</p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✓</span>
+                My Tasks
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✦</span>
+                Guidance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▣</span>
+                Calendar
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="login.html" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="dashboard-date" id="currentDate">
+                    Monday, September 7
+                </p>
+
+                <h1>Good morning, <span id="studentName">Student</span> 👋</h1>
+
+                <p class="dashboard-subtitle">
+                    Here's what needs your attention today.
+                </p>
+            </div>
+
+
+            <div class="profile-circle" id="profileCircle">
+                S
+            </div>
+
+        </header>
+
+
+
+        <!-- STAT CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">✓</div>
+
+                <div>
+                    <p>Total Tasks</p>
+                    <h2>04</h2>
+                    <span>For this week</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card urgent">
+
+                <div class="stat-icon">!</div>
+
+                <div>
+                    <p>Urgent Tasks</p>
+                    <h2>02</h2>
+                    <span>Need attention</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card progress-card">
+
+                <div class="stat-icon">↗</div>
+
+                <div>
+                    <p>Productivity</p>
+                    <h2>78%</h2>
+                    <span>Good progress</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTENT GRID -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- TODAY'S TASKS -->
+
+        <div class="dashboard-card tasks-card">
+
+    <div class="card-heading">
+
+        <div>
+            <p class="card-label">YOUR SCHEDULE</p>
+            <h2>Today's Tasks</h2>
+        </div>
+
+        <a href="my-tasks.html" class="view-button">
+            View all →
+        </a>
+
+    </div>
+
+    <div class="task-list" id="taskList">
+
+    </div>
+
+</div>
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card actions-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <p class="card-label">GET THINGS DONE</p>
+                        <h2>Quick Actions</h2>
+                    </div>
+
+                </div>
+
+
+                <a href="add-task.html" class="action-button primary-action">
+    <span class="action-icon">+</span>
+
+    <div>
+        <strong>Add New Task</strong>
+        <small>Create a reminder</small>
+    </div>
+
+    <span class="action-arrow">→</span>
+</a>
+
+
+                <button class="action-button">
+
+                    <span class="action-icon">✦</span>
+
+                    <div>
+                        <strong>Get Guidance</strong>
+                        <small>Need help planning?</small>
+                    </div>
+
+                    <span class="action-arrow">→</span>
+
+                </button>
+
+
+
+                <button class="action-button">
+
+                    <span class="action-icon">▣</span>
+
+                    <div>
+                        <strong>Open Calendar</strong>
+                        <small>View your deadlines</small>
+                    </div>
+
+                    <span class="action-arrow">→</span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCTIVITY -->
+
+            <div class="dashboard-card productivity-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <p class="card-label">YOUR PROGRESS</p>
+                        <h2>Productivity</h2>
+                    </div>
+
+                    <span class="progress-percentage">
+                        78%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+
+                <p class="productivity-message">
+                    You're doing well! Keep completing your
+                    tasks before their deadlines.
+                </p>
+
+
+                <div class="productivity-stats">
+
+                    <div>
+                        <strong>11</strong>
+                        <span>Completed</span>
+                    </div>
+
+                    <div>
+                        <strong>3</strong>
+                        <span>Pending</span>
+                    </div>
+
+                    <div>
+                        <strong>2</strong>
+                        <span>Overdue</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GUIDANCE -->
+
+            <div class="guidance-card">
+
+                <div class="guidance-symbol">
+                    ✦
+                </div>
+
+                <div class="guidance-content">
+
+                    <p>ACADEMIC GUIDANCE</p>
+
+                    <h2>Not sure what to work on?</h2>
+
+                    <span>
+                        We'll help you decide what task should
+                        get your attention first.
+                    </span>
+
+                    <button>
+                        Get Guidance →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+// ==============================
+// STUDENT NAME
+// ==============================
+
+const savedName = localStorage.getItem("studentName");
+
+if (savedName) {
+
+    document.getElementById("studentName").textContent =
+        savedName;
+
+    document.getElementById("profileCircle").textContent =
+        savedName.charAt(0).toUpperCase();
+}
+
+
+// ==============================
+// CURRENT DATE
+// ==============================
+
+const today = new Date();
+
+const dateOptions = {
+    weekday: "long",
+    month: "long",
+    day: "numeric"
+};
+
+document.getElementById("currentDate").textContent =
+    today.toLocaleDateString("en-US", dateOptions);
+
+
+// ==============================
+// LOAD TASKS FROM DATABASE
+// ==============================
+
+async function loadTasks() {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    const taskList =
+        document.getElementById("taskList");
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/tasks",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            }
+        );
+
+        const tasks = await response.json();
+
+        console.log("Tasks received:", tasks);
+
+        // Clear the task list
+        taskList.innerHTML = "";
+
+
+        // ==============================
+        // NO TASKS
+        // ==============================
+
+        if (!tasks || tasks.length === 0) {
+
+            taskList.innerHTML = `
+                <div class="no-tasks">
+                    <h3>No tasks yet</h3>
+                    <p>
+                        You don't have any academic tasks.
+                        Add a task to get started.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        // ==============================
+        // DISPLAY TASKS
+        // ==============================
+
+        tasks.forEach(task => {
+
+            const deadline =
+                new Date(task.deadline);
+
+            const formattedDate =
+                deadline.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric"
+                });
+
+
+            const taskItem =
+                document.createElement("div");
+
+            taskItem.className = "task-item";
+
+
+            taskItem.innerHTML = `
+
+                <div class="task-check empty">
+                </div>
+
+                <div class="task-information">
+
+                    <h3>${task.title}</h3>
+
+                    <p>${task.subject}</p>
+
+                </div>
+
+                <div class="task-deadline">
+
+                    ${formattedDate}
+
+                </div>
+
+            `;
+
+
+            taskList.appendChild(taskItem);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unable to load tasks:",
+            error
+        );
+
+        taskList.innerHTML = `
+            <div class="no-tasks">
+                <h3>Unable to load tasks</h3>
+                <p>
+                    Please make sure the server is running.
+                </p>
+            </div>
+        `;
+    }
+}
+
+
+// Start loading tasks
+loadTasks();
+
+</script>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Tasks - Student Reminder & Guidance System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="task-page">
+
+    <main class="task-container">
+
+        <!-- HEADER -->
+        <div class="task-header">
+
+            <a href="dashboard.html" class="back-button">
+                ← Back to Dashboard
+            </a>
+
+            <p class="task-kicker">
+                STUDENT REMINDER & GUIDANCE
+            </p>
+
+            <h1>My Tasks</h1>
+
+            <p>
+                View all your academic tasks and deadlines.
+            </p>
+
+        </div>
+
+
+        <!-- TASK SECTION -->
+        <section class="my-tasks-card">
+
+            <div class="my-tasks-heading">
+
+                <div>
+                    <p class="task-section-label">
+                        YOUR ACADEMIC TASKS
+                    </p>
+
+                    <h2>
+                        All Tasks
+                    </h2>
+                </div>
+
+                <a href="add-task.html" class="add-task-small">
+                    + Add Task
+                </a>
+
+            </div>
+
+
+            <!-- TASK LIST -->
+            <div id="allTasks" class="task-list">
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM ACTION -->
+        <div class="task-bottom-action">
+
+            <a href="add-task.html" class="save-task-button">
+                + Add New Task
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        // ==========================================
+        // LOAD ALL TASKS
+        // ==========================================
+
+        async function loadAllTasks() {
+
+            const token =
+                localStorage.getItem("token");
+
+
+            // Check login
+            if (!token) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            const allTasks =
+                document.getElementById("allTasks");
+
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5000/api/tasks",
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "Authorization":
+                                "Bearer " + token
+                        }
+                    }
+                );
+
+
+                const tasks =
+                    await response.json();
+
+
+                allTasks.innerHTML = "";
+
+
+                // ==========================================
+                // ERROR FROM SERVER
+                // ==========================================
+
+                if (!response.ok) {
+
+                    allTasks.innerHTML = `
+
+                        <div class="no-tasks">
+
+                            <h3>
+                                Unable to load tasks
+                            </h3>
+
+                            <p>
+                                Please try again or login again.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+                // ==========================================
+                // NO TASKS
+                // ==========================================
+
+                if (tasks.length === 0) {
+
+                    allTasks.innerHTML = `
+
+                        <div class="no-tasks">
+
+                            <div class="no-task-icon">
+                                ✓
+                            </div>
+
+                            <h3>
+                                No tasks found
+                            </h3>
+
+                            <p>
+                                Add your first academic task
+                                to get started.
+                            </p>
+
+                            <a
+                                href="add-task.html"
+                                class="add-task-empty"
+                            >
+                                + Add Your First Task
+                            </a>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+                // ==========================================
+                // DISPLAY ALL TASKS
+                // ==========================================
+
+                tasks.forEach(task => {
+
+                    const deadline =
+                        new Date(task.deadline);
+
+
+                    const formattedDeadline =
+                        deadline.toLocaleString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                            hour: "numeric",
+                            minute: "2-digit"
+                        });
+
+
+                    const taskItem =
+                        document.createElement("div");
+
+
+                    taskItem.className =
+                        "task-item";
+
+
+                    // ==========================================
+                    // TASK HTML
+                    // ==========================================
+
+                    taskItem.innerHTML = `
+
+                        <div
+                            class="task-check empty"
+                            onclick="completeTask('${task._id}')"
+                            title="Mark task as completed"
+                        >
+                            <span></span>
+                        </div>
+
+
+                        <div class="task-information">
+
+                            <h3>
+                                ${task.title}
+                            </h3>
+
+                            <p>
+                                ${task.subject}
+                            </p>
+
+                            <small>
+
+                                Priority:
+
+                                <strong>
+                                    ${task.priority}
+                                </strong>
+
+                                &nbsp; | &nbsp;
+
+                                Notifications:
+                                ${task.notificationsPerDay}/day
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="task-deadline">
+
+                            <span class="deadline-label">
+                                DEADLINE
+                            </span>
+
+                            <strong>
+                                ${formattedDeadline}
+                            </strong>
+
+                        </div>
+
+                    `;
+
+
+                    allTasks.appendChild(taskItem);
+
+                });
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Error loading tasks:",
+                    error
+                );
+
+
+                allTasks.innerHTML = `
+
+                    <div class="no-tasks">
+
+                        <h3>
+                            Something went wrong
+                        </h3>
+
+                        <p>
+                            Make sure your backend server
+                            is running.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        // ==========================================
+        // COMPLETE TASK
+        // ==========================================
+
+        async function completeTask(taskId) {
+
+            const token =
+                localStorage.getItem("token");
+
+
+            // Check login
+            if (!token) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            try {
+
+                const response = await fetch(
+
+                    `http://localhost:5000/api/tasks/${taskId}/complete`,
+
+                    {
+                        method: "PUT",
+
+                        headers: {
+
+                            "Authorization":
+                                "Bearer " + token
+
+                        }
+                    }
+
+                );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Complete task response:",
+                    data
+                );
+
+
+                // ==========================================
+                // IF COMPLETION FAILED
+                // ==========================================
+
+                if (!response.ok) {
+
+                    alert(
+                        data.message ||
+                        "Unable to complete task."
+                    );
+
+                    return;
+                }
+
+
+                // ==========================================
+                // RELOAD TASKS
+                // ==========================================
+
+                loadAllTasks();
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Complete task error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to connect to the server."
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // START
+        // ==========================================
+
+        loadAllTasks();
+
+    </script>
+
+</body>
+
+</html>

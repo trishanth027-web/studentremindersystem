@@ -1,0 +1,3441 @@
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: #f5f7fb;
+}
+
+
+/* =========================================================
+   LEFT INTRO PANEL
+========================================================= */
+
+.login-intro {
+    min-height: 100vh;
+    padding: 55px 70px;
+    background: #101827;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-intro::after {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.10);
+
+    right: -180px;
+    bottom: -180px;
+}
+
+
+/* Brand */
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.login-brand .brand-mark {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.login-brand h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.login-brand span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8994a7;
+
+    font-size: 10px;
+}
+
+
+/* Intro content */
+
+.intro-content {
+    max-width: 570px;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+.login-intro .eyebrow {
+    margin-bottom: 16px;
+
+    color: #60a5fa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.login-intro h1 {
+    color: #ffffff;
+
+    font-size: 48px;
+    line-height: 1.08;
+
+    font-weight: 650;
+
+    letter-spacing: -1.5px;
+}
+
+.intro-copy {
+    max-width: 500px;
+
+    margin-top: 20px;
+
+    color: #aeb8c9;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* Intro points */
+
+.intro-points {
+    margin-top: 34px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.intro-point {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+}
+
+.point-number {
+    color: #60a5fa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    padding-top: 3px;
+}
+
+.intro-point strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.intro-point p {
+    margin-top: 3px;
+
+    color: #77849a;
+
+    font-size: 10px;
+}
+
+
+/* Footer */
+
+.intro-footer {
+    position: relative;
+    z-index: 2;
+
+    color: #667287;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LOGIN FORM PANEL
+========================================================= */
+
+.login-form-panel {
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 410px;
+}
+
+
+/* Form heading */
+
+.form-kicker {
+    margin-bottom: 10px;
+
+    color: #2563eb;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.login-form-panel h2 {
+    color: #172033;
+
+    font-size: 30px;
+    font-weight: 650;
+
+    letter-spacing: -0.7px;
+}
+
+.form-description {
+    margin-top: 8px;
+
+    color: #7a8699;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* Form */
+
+#loginForm {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dfe5ed;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #a4adba;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* Login button */
+
+#loginForm button {
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    transition: 0.2s ease;
+}
+
+#loginForm button span {
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+#loginForm button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.20);
+}
+
+#loginForm button:hover span {
+    transform: translateX(3px);
+}
+
+
+/* Login message */
+
+#loginMessage {
+    margin-top: 14px;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+/* Signup */
+
+.signup-link {
+    margin-top: 27px;
+
+    text-align: center;
+}
+
+.signup-link p {
+    display: inline;
+
+    color: #8994a7;
+
+    font-size: 11px;
+}
+
+.signup-link a {
+    margin-left: 4px;
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* Divider */
+
+.form-divider {
+    height: 1px;
+
+    margin: 28px 0 18px;
+
+    background: #edf0f4;
+}
+
+
+/* Bottom note */
+
+.form-note {
+    color: #a0a9b7;
+
+    font-size: 10px;
+
+    text-align: center;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOGIN RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .login-intro {
+        min-height: auto;
+
+        padding: 40px;
+    }
+
+    .intro-content {
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+
+    .login-intro h1 {
+        font-size: 38px;
+    }
+
+    .login-form-panel {
+        min-height: auto;
+
+        padding: 55px 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .login-intro {
+        padding: 30px 25px;
+    }
+
+    .intro-content {
+        margin-top: 55px;
+        margin-bottom: 35px;
+    }
+
+    .login-intro h1 {
+        font-size: 34px;
+    }
+
+    .intro-copy {
+        font-size: 12px;
+    }
+
+    .login-form-panel {
+        padding: 40px 22px;
+    }
+
+    .login-form-panel h2 {
+        font-size: 27px;
+    }
+
+}
+
+/* =========================================================
+   STUDENT REMINDER & GUIDANCE SYSTEM
+   MODERN DASHBOARD DESIGN
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   DASHBOARD LAYOUT
+========================================================= */
+
+.dashboard-page {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+
+    background: #101827;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 18px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 100;
+}
+
+
+/* Logo */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 10px 28px;
+}
+
+.logo-symbol {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+    font-weight: 600;
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.sidebar-logo h2 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.sidebar-logo p {
+    margin-top: 3px;
+
+    font-size: 11px;
+    color: #8994a7;
+}
+
+
+/* Workspace title */
+
+.workspace-title {
+    padding: 12px 12px 10px;
+
+    color: #69758a;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* Navigation */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 52px;
+
+    padding: 9px 12px;
+
+    border-radius: 10px;
+
+    color: #aeb8c9;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-item > span {
+    width: 27px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+.nav-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item strong {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nav-item small {
+    margin-top: 2px;
+
+    color: #667287;
+
+    font-size: 10px;
+}
+
+.nav-item:hover {
+    background: #192437;
+    color: #ffffff;
+
+    transform: translateX(2px);
+}
+
+.nav-item:hover small {
+    color: #8e9ab0;
+}
+
+
+/* Active item */
+
+.nav-item.active {
+    background: #1d4ed8;
+    color: #ffffff;
+
+    box-shadow: 0 7px 18px rgba(29, 78, 216, 0.22);
+}
+
+.nav-item.active small {
+    color: #bfdbfe;
+}
+
+
+/* Guidance section */
+
+.sidebar-section {
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #202b3d;
+}
+
+.guidance-nav {
+    color: #b8c4d6;
+}
+
+
+/* Bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #202b3d;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.logout {
+    color: #8995a8;
+}
+
+.logout:hover {
+    color: #f87171;
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.dashboard-main {
+    width: calc(100% - 250px);
+
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 38px 48px 60px;
+
+    max-width: 1600px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+}
+
+.dashboard-date {
+    color: #718096;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    margin-bottom: 7px;
+}
+
+.dashboard-header h1 {
+    color: #111827;
+
+    font-size: 29px;
+    line-height: 1.2;
+
+    font-weight: 650;
+
+    letter-spacing: -0.8px;
+}
+
+.dashboard-header h1 span {
+    color: #2563eb;
+}
+
+.dashboard-subtitle {
+    margin-top: 8px;
+
+    color: #718096;
+
+    font-size: 13px;
+}
+
+
+/* Header actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notification-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #e3e8f0;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.notification-button:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+
+/* Profile */
+
+.profile-circle {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================================================
+   ACADEMIC DAY
+========================================================= */
+
+.academic-day-card {
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+
+    border-radius: 18px;
+
+    padding: 25px 28px;
+
+    margin-bottom: 34px;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+.academic-day-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.section-label {
+    color: #718096;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+}
+
+.academic-day-heading h2 {
+    margin-top: 5px;
+
+    color: #172033;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.academic-status {
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #ecfdf5;
+    color: #059669;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.academic-overview {
+    display: flex;
+    align-items: center;
+
+    margin-top: 23px;
+}
+
+.overview-item {
+    min-width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.overview-number {
+    color: #172033;
+
+    font-size: 24px;
+    font-weight: 650;
+}
+
+.overview-label {
+    color: #7a8699;
+
+    font-size: 11px;
+}
+
+.overview-divider {
+    width: 1px;
+    height: 38px;
+
+    background: #e8edf3;
+
+    margin: 0 30px;
+}
+
+.progress-overview .overview-number {
+    color: #2563eb;
+}
+
+
+/* Progress */
+
+.academic-progress {
+    margin-top: 20px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    background: #e9eef5;
+
+    border-radius: 20px;
+}
+
+.progress-fill {
+    width: 78%;
+    height: 100%;
+
+    background: #2563eb;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.focus-section {
+    margin-bottom: 34px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    margin-top: 5px;
+
+    color: #172033;
+
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.view-all-link {
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   TASK LIST
+========================================================= */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* Task */
+
+.task-item {
+    min-height: 78px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 18px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+
+    border-color: #d6deeb;
+
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+
+/* Checkbox */
+
+.task-check {
+    width: 21px;
+    height: 21px;
+
+    border: 2px solid #c5cfdd;
+
+    border-radius: 50%;
+
+    margin-right: 15px;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.task-check:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+
+/* Task information */
+
+.task-information {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.task-category {
+    display: block;
+
+    color: #2563eb;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    margin-bottom: 3px;
+}
+
+.task-information h3 {
+    color: #1e293b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Deadline */
+
+.task-deadline {
+    min-width: 95px;
+
+    text-align: right;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.task-deadline span {
+    color: #9aa5b5;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.task-deadline strong {
+    margin-top: 2px;
+
+    color: #334155;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.task-deadline small {
+    margin-top: 2px;
+
+    color: #8a95a5;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   EMPTY TASK STATE
+========================================================= */
+
+.no-tasks {
+    min-height: 190px;
+
+    background: #ffffff;
+
+    border: 1px dashed #d7dee9;
+
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.empty-task-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.no-tasks h3 {
+    color: #1e293b;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.no-tasks p {
+    max-width: 420px;
+
+    margin-top: 5px;
+
+    color: #7b8798;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.no-tasks a {
+    margin-top: 12px;
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.error-state .empty-task-icon {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+
+/* =========================================================
+   LOWER DASHBOARD
+========================================================= */
+
+.lower-dashboard {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-actions-card {
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+
+    border-radius: 17px;
+
+    padding: 23px;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.03);
+}
+
+.quick-actions-card .section-heading {
+    margin-bottom: 15px;
+}
+
+.quick-actions-card .section-heading h2 {
+    font-size: 17px;
+}
+
+
+.quick-actions-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.quick-action {
+    min-height: 100px;
+
+    padding: 15px;
+
+    border: 1px solid #e5eaf1;
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    transition: 0.2s ease;
+}
+
+.quick-action:hover {
+    border-color: #cbd5e1;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(15, 23, 42, 0.05);
+}
+
+.quick-action.primary {
+    background: #f8fbff;
+
+    border-color: #dbeafe;
+}
+
+.quick-action-icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.quick-action strong {
+    color: #273449;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.quick-action small {
+    margin-top: 3px;
+
+    color: #8490a2;
+
+    font-size: 10px;
+}
+
+.quick-arrow {
+    position: absolute;
+
+    right: 13px;
+    bottom: 12px;
+
+    color: #9aa5b5;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   GUIDANCE
+========================================================= */
+
+.guidance-card {
+    min-height: 190px;
+
+    background: #101827;
+
+    border-radius: 17px;
+
+    padding: 25px;
+
+    color: #ffffff;
+
+    display: flex;
+    gap: 17px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.guidance-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.12);
+
+    right: -65px;
+    bottom: -75px;
+}
+
+.guidance-symbol {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 18px;
+}
+
+.guidance-content {
+    position: relative;
+    z-index: 2;
+}
+
+.guidance-content .section-label {
+    color: #8290a7;
+}
+
+.guidance-content h2 {
+    margin-top: 7px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.guidance-content > p {
+    max-width: 360px;
+
+    margin-top: 8px;
+
+    color: #a9b4c5;
+
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.guidance-button {
+    margin-top: 16px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    padding: 9px 13px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.guidance-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-main {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .lower-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 72px;
+
+        padding: 22px 10px;
+    }
+
+    .sidebar-logo {
+        justify-content: center;
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sidebar-logo > div:last-child,
+    .workspace-title,
+    .nav-item div {
+        display: none;
+    }
+
+    .sidebar-logo .logo-symbol {
+        width: 40px;
+    }
+
+    .nav-item {
+        justify-content: center;
+
+        padding: 10px;
+    }
+
+    .nav-item > span {
+        width: auto;
+    }
+
+    .dashboard-main {
+        width: calc(100% - 72px);
+
+        margin-left: 72px;
+
+        padding: 28px 20px 45px;
+    }
+
+    .academic-overview {
+        justify-content: space-between;
+    }
+
+    .overview-item {
+        min-width: auto;
+    }
+
+    .overview-divider {
+        margin: 0 12px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dashboard-header h1 {
+        font-size: 23px;
+    }
+
+    .dashboard-subtitle {
+        font-size: 11px;
+    }
+
+    .notification-button {
+        display: none;
+    }
+
+    .academic-day-card {
+        padding: 20px;
+    }
+
+    .academic-day-heading {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .academic-overview {
+        align-items: flex-start;
+    }
+
+    .overview-number {
+        font-size: 19px;
+    }
+
+    .overview-label {
+        font-size: 9px;
+    }
+
+    .overview-divider {
+        margin: 0 8px;
+    }
+
+    .task-item {
+        padding: 13px;
+    }
+
+    .task-deadline {
+        min-width: 75px;
+    }
+
+    .task-information h3 {
+        font-size: 12px;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guidance-card {
+        padding: 20px;
+    }
+
+}
+/* =========================================================
+   ACADEMIC CALENDAR
+   ========================================================= */
+
+.calendar-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.calendar-container {
+    width: min(1050px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 45px 0 60px;
+}
+
+/* ---------- Header ---------- */
+
+.calendar-header {
+    margin-bottom: 30px;
+}
+
+.calendar-header .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 28px;
+
+    color: #526071;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.calendar-header .back-button:hover {
+    color: #2563eb;
+}
+
+.calendar-kicker {
+    margin: 0 0 9px;
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.calendar-header h1 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.calendar-header > p:last-child {
+    margin: 10px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* ---------- Main Calendar Card ---------- */
+
+.calendar-card {
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: 0 8px 30px rgba(25, 35, 55, 0.05);
+}
+
+/* ---------- Calendar Top ---------- */
+
+.calendar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.calendar-label {
+    margin: 0 0 6px;
+
+    color: #7b8494;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.calendar-top h2 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+}
+
+/* ---------- Month Navigation ---------- */
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calendar-nav button {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dfe4ec;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #4b5565;
+
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.calendar-nav button:hover {
+    background: #eef4ff;
+    border-color: #c9d8f5;
+    color: #2563eb;
+}
+
+.calendar-nav button:active {
+    transform: scale(0.96);
+}
+
+/* ---------- Weekday Names ---------- */
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    margin-top: 22px;
+
+    border-bottom: 1px solid #edf0f5;
+    padding-bottom: 12px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+
+    color: #8992a2;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* ---------- Calendar Grid ---------- */
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+/* ---------- Individual Day ---------- */
+
+.calendar-day {
+    position: relative;
+
+    min-height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px 5px;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    background: #ffffff;
+    color: #344054;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: #f5f8ff;
+    border-color: #dce6f8;
+
+    transform: translateY(-1px);
+}
+
+.calendar-day.empty-day {
+    cursor: default;
+    background: transparent;
+    border-color: transparent;
+}
+
+.calendar-day.empty-day:hover {
+    transform: none;
+    background: transparent;
+}
+
+/* ---------- Day Number ---------- */
+
+.day-number {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+.calendar-day:hover .day-number {
+    background: #eef4ff;
+    color: #2563eb;
+}
+
+/* ---------- Today ---------- */
+
+.calendar-day.today {
+    background: #f4f7ff;
+    border-color: #d9e4fb;
+}
+
+.calendar-day.today .day-number {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* ---------- Dates Having Tasks ---------- */
+
+.calendar-day.has-task {
+    background: #fbfcff;
+}
+
+.calendar-day.has-task .day-number {
+    color: #2563eb;
+}
+
+.calendar-day.has-task:hover {
+    background: #f1f5ff;
+}
+
+/* ---------- Task Dots ---------- */
+
+.task-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    margin-top: 5px;
+
+    min-height: 7px;
+}
+
+.task-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+}
+
+.task-count {
+    margin-left: 2px;
+
+    color: #7b8494;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* ---------- Calendar Legend ---------- */
+
+.calendar-legend {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 20px;
+    padding-top: 17px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #7b8494;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.legend-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+}
+
+.legend-today {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+}
+
+/* ---------- Selected Date Section ---------- */
+
+.calendar-tasks {
+    margin-top: 22px;
+
+    padding: 26px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 30px rgba(25, 35, 55, 0.05);
+}
+
+.calendar-tasks h2 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ---------- Selected Date Tasks ---------- */
+
+.selected-date-tasks {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.calendar-task {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    background: #fafbfc;
+
+    border: 1px solid #e8ecf2;
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+.calendar-task:hover {
+    border-color: #cfd9eb;
+
+    box-shadow: 0 5px 18px rgba(25, 35, 55, 0.05);
+}
+
+/* ---------- Task Icon ---------- */
+
+.calendar-task-icon {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef4ff;
+
+    font-size: 17px;
+}
+
+/* ---------- Task Information ---------- */
+
+.calendar-task-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.calendar-task-info h3 {
+    margin: 0 0 4px;
+
+    color: #172033;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.calendar-task-info p {
+    margin: 0 0 5px;
+
+    color: #667085;
+
+    font-size: 11px;
+}
+
+.calendar-task-info small {
+    color: #8b94a3;
+
+    font-size: 10px;
+}
+
+/* ---------- Priority ---------- */
+
+.priority-high,
+.priority-medium,
+.priority-low {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 58px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+.priority-high {
+    background: #fff0f0;
+    color: #d64545;
+}
+
+.priority-medium {
+    background: #fff7e8;
+    color: #b7791f;
+}
+
+.priority-low {
+    background: #edf8f1;
+    color: #27804f;
+}
+
+/* ---------- Empty Selected Date ---------- */
+
+.calendar-empty {
+    padding: 38px 20px;
+
+    text-align: center;
+
+    border: 1px dashed #d7dee9;
+    border-radius: 13px;
+
+    background: #fbfcfe;
+}
+
+.empty-calendar-icon {
+    width: 40px;
+    height: 40px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef4ff;
+    color: #2563eb;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.calendar-empty h3 {
+    margin: 0 0 6px;
+
+    color: #263247;
+
+    font-size: 15px;
+}
+
+.calendar-empty p {
+    margin: 0;
+
+    color: #7b8494;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* ---------- Calendar Error ---------- */
+
+.calendar-error {
+    grid-column: 1 / -1;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #b42318;
+
+    background: #fff5f5;
+
+    border: 1px solid #f1caca;
+    border-radius: 12px;
+
+    font-size: 12px;
+}
+
+/* ---------- Add New Task ---------- */
+
+.calendar-add-task {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    min-height: 42px;
+
+    padding: 0 19px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.calendar-add-task:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   CALENDAR RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .calendar-container {
+        width: calc(100% - 28px);
+        padding: 28px 0 40px;
+    }
+
+    .calendar-header h1 {
+        font-size: 28px;
+    }
+
+    .calendar-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .calendar-top {
+        align-items: flex-start;
+    }
+
+    .calendar-top h2 {
+        font-size: 19px;
+    }
+
+    .calendar-day {
+        min-height: 55px;
+        padding: 7px 3px;
+    }
+
+    .day-number {
+        width: 27px;
+        height: 27px;
+    }
+
+    .calendar-weekdays div {
+        font-size: 8px;
+    }
+
+    .task-dot {
+        width: 4px;
+        height: 4px;
+    }
+
+    .calendar-tasks {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .calendar-task {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .calendar-task-info {
+        width: calc(100% - 52px);
+    }
+
+    .priority-high,
+    .priority-medium,
+    .priority-low {
+        margin-left: 52px;
+    }
+
+    .calendar-legend {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .calendar-container {
+        width: calc(100% - 20px);
+    }
+
+    .calendar-card {
+        padding: 15px;
+    }
+
+    .calendar-top {
+        gap: 10px;
+    }
+
+    .calendar-top h2 {
+        font-size: 17px;
+    }
+
+    .calendar-nav button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .calendar-days {
+        gap: 3px;
+    }
+
+    .calendar-day {
+        min-height: 48px;
+        font-size: 11px;
+    }
+
+    .day-number {
+        width: 24px;
+        height: 24px;
+    }
+
+    .calendar-tasks {
+        padding: 16px;
+    }
+
+    .calendar-add-task {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+/* =========================================================
+   MY TASKS + ADD TASK PAGES
+========================================================= */
+
+/* Main page */
+.task-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.task-container {
+    width: min(1050px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 45px 0 60px;
+}
+
+/* ---------- HEADER ---------- */
+
+.task-header {
+    margin-bottom: 30px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    color: #526071;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    color: #2563eb;
+}
+
+.task-kicker {
+    margin: 0 0 9px;
+    color: #2563eb;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.task-header h1 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+    color: #172033;
+}
+
+.task-header > p:last-child {
+    margin: 10px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MY TASKS
+========================================================= */
+
+.my-tasks-card {
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 8px 30px rgba(25, 35, 55, 0.05);
+}
+
+.my-tasks-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.task-section-label {
+    margin: 0 0 6px;
+    color: #7b8494;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.my-tasks-heading h2,
+.add-task-heading h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 22px;
+}
+
+.add-task-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 9px;
+    background: #eef4ff;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.add-task-small:hover {
+    background: #e3edff;
+}
+
+
+/* ---------- TASK LIST ---------- */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px;
+    background: #fafbfc;
+    border: 1px solid #e8ecf2;
+    border-radius: 13px;
+    transition: 0.2s ease;
+}
+
+.task-item:hover {
+    border-color: #cfd9eb;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 18px rgba(25, 35, 55, 0.05);
+}
+
+
+/* Checkbox / task indicator */
+
+.task-check {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    border: 2px solid #cbd3df;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-check span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+
+/* Task information */
+
+.task-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-information h3 {
+    margin: 0 0 5px;
+    color: #172033;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.task-information p {
+    margin: 0 0 7px;
+    color: #667085;
+    font-size: 12px;
+}
+
+.task-information small {
+    color: #8992a2;
+    font-size: 10px;
+}
+
+.task-information small strong {
+    color: #526071;
+}
+
+
+/* Deadline */
+
+.task-deadline {
+    min-width: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    color: #39465a;
+    font-size: 12px;
+    text-align: right;
+}
+
+.deadline-label {
+    color: #9aa3b2;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.task-deadline strong {
+    font-size: 12px;
+    color: #3c4759;
+}
+
+
+/* Empty state */
+
+.no-tasks {
+    padding: 55px 20px;
+    text-align: center;
+    border: 1px dashed #d7dee9;
+    border-radius: 14px;
+    background: #fbfcfe;
+}
+
+.no-task-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eef4ff;
+    color: #2563eb;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.no-tasks h3 {
+    margin: 0 0 7px;
+    color: #263247;
+    font-size: 16px;
+}
+
+.no-tasks p {
+    margin: 0 0 18px;
+    color: #7b8494;
+    font-size: 12px;
+}
+.add-task-empty {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.add-task-empty:hover {
+    background-color: #1d4ed8 !important;
+    color: #ffffff !important;
+}
+
+/* Bottom button */
+
+.task-bottom-action {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   ADD TASK
+========================================================= */
+
+.add-task-card {
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(25, 35, 55, 0.05);
+}
+
+.add-task-heading {
+    padding-bottom: 22px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.add-task-heading p:last-child {
+    margin: 8px 0 0;
+    color: #7b8494;
+    font-size: 12px;
+}
+
+
+/* Form */
+
+.task-form {
+    max-width: 720px;
+}
+
+.form-group {
+    margin-bottom: 21px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #344054;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    height: 45px;
+    padding: 0 13px;
+    border: 1px solid #d9dee8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #172033;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #a3aab6;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #5b8def;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.form-help {
+    display: block;
+    margin-top: 7px;
+    color: #8b94a3;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* Message */
+
+#taskMessage {
+    margin: 5px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Buttons */
+
+.task-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #edf0f5;
+}
+
+.cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 18px;
+    border: 1px solid #dce1e9;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #5f6979;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.cancel-button:hover {
+    background: #f7f8fa;
+}
+
+.save-task-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 19px;
+
+    background-color: #2563eb !important;
+    color: white !important;
+
+    border: none;
+    border-radius: 9px;
+
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.save-task-button:hover {
+    background-color: #1d4ed8 !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .task-container {
+        width: min(100% - 28px, 600px);
+        padding: 28px 0 40px;
+    }
+
+    .task-header h1 {
+        font-size: 28px;
+    }
+
+    .my-tasks-card,
+    .add-task-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .my-tasks-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .task-item {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .task-information {
+        width: calc(100% - 45px);
+    }
+
+    .task-deadline {
+        width: 100%;
+        min-width: 0;
+        padding-left: 37px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .task-buttons {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .cancel-button,
+    .save-task-button {
+        width: 100%;
+    }
+
+}
+/* Fix Add New Task button on My Tasks page */
+.task-bottom-action .save-task-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 150px;
+    height: 42px;
+    padding: 0 18px;
+
+    background: #2563eb;
+    color: #ffffff !important;
+
+    border: none;
+    border-radius: 9px;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.task-bottom-action .save-task-button:hover {
+    background: #1d4ed8;
+    color: #ffffff !important;
+}
+/* =========================================================
+   SIGNUP PAGE
+========================================================= */
+
+.signup-container {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    background: #f5f7fb;
+}
+
+
+/* Left panel */
+
+.signup-intro {
+    min-height: 100vh;
+
+    padding: 55px 70px;
+
+    background: #101827;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.signup-intro::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.10);
+
+    right: -180px;
+    bottom: -180px;
+}
+
+
+/* Brand */
+
+.signup-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.signup-brand .brand-mark {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.signup-brand h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.signup-brand span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8994a7;
+
+    font-size: 10px;
+}
+
+
+/* Intro */
+
+.signup-intro-content {
+    max-width: 530px;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+.signup-intro .eyebrow {
+    margin-bottom: 16px;
+
+    color: #60a5fa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.signup-intro h1 {
+    color: #ffffff;
+
+    font-size: 44px;
+    line-height: 1.1;
+
+    font-weight: 650;
+
+    letter-spacing: -1.3px;
+}
+
+.signup-intro-copy {
+    margin-top: 18px;
+
+    color: #aeb8c9;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.signup-intro-footer {
+    position: relative;
+    z-index: 2;
+
+    color: #667287;
+
+    font-size: 10px;
+}
+
+
+/* Right form */
+
+.signup-form-panel {
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px;
+}
+
+.signup-form-content {
+    width: 100%;
+    max-width: 420px;
+}
+
+.signup-kicker {
+    margin-bottom: 9px;
+
+    color: #2563eb;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.signup-form-content h2 {
+    color: #172033;
+
+    font-size: 29px;
+    font-weight: 650;
+
+    letter-spacing: -0.7px;
+}
+
+.signup-description {
+    margin-top: 8px;
+
+    color: #7a8699;
+
+    font-size: 12px;
+}
+
+
+/* Signup form */
+
+#signupForm {
+    margin-top: 27px;
+}
+
+.signup-group {
+    margin-bottom: 16px;
+}
+
+.signup-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.signup-group input {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 1px solid #dfe5ed;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-family: inherit;
+    font-size: 11px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.signup-group input::placeholder {
+    color: #a4adba;
+}
+
+.signup-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* Signup button */
+
+.signup-submit {
+    width: 100%;
+    height: 46px;
+
+    margin-top: 6px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.signup-submit:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.18);
+}
+
+
+/* Message */
+
+#signupMessage {
+    margin-top: 12px;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* Login link */
+
+.login-link {
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: #8994a7;
+
+    font-size: 11px;
+}
+
+.login-link a {
+    margin-left: 4px;
+
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* Signup responsive */
+
+@media (max-width: 900px) {
+
+    .signup-container {
+        grid-template-columns: 1fr;
+    }
+
+    .signup-intro {
+        min-height: auto;
+
+        padding: 40px;
+    }
+
+    .signup-intro-content {
+        margin-top: 60px;
+        margin-bottom: 45px;
+    }
+
+    .signup-form-panel {
+        min-height: auto;
+
+        padding: 50px 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .signup-intro {
+        padding: 30px 25px;
+    }
+
+    .signup-intro h1 {
+        font-size: 34px;
+    }
+
+    .signup-form-panel {
+        padding: 40px 22px;
+    }
+
+}
+/* =========================================================
+   ACADEMIC NOTIFICATION POPUP
+   ========================================================= */
+
+.academic-notification {
+    position: fixed;
+
+    top: 24px;
+    right: 24px;
+
+    width: 380px;
+    max-width: calc(100vw - 32px);
+
+    display: none;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e3e8f0;
+    border-radius: 15px;
+
+    box-shadow:
+        0 18px 45px rgba(23, 32, 51, 0.14),
+        0 4px 12px rgba(23, 32, 51, 0.06);
+
+    z-index: 9999;
+
+    animation: notificationSlideIn 0.35s ease;
+}
+
+/* Show notification */
+
+.academic-notification.show {
+    display: flex;
+}
+
+/* Notification icon */
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #eef4ff;
+
+    font-size: 18px;
+}
+
+/* Notification content */
+
+.notification-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.notification-label {
+    margin: 0 0 5px;
+
+    color: #2563eb;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.notification-content h3 {
+    margin: 0 0 6px;
+
+    color: #172033;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.notification-content > p:not(.notification-label) {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+/* Notification buttons */
+
+.notification-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+.notification-actions button {
+    min-height: 34px;
+
+    padding: 0 11px;
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+/* Snooze button */
+
+.notification-snooze {
+    border: 1px solid #dce2eb;
+
+    background: #ffffff;
+
+    color: #526071;
+}
+
+.notification-snooze:hover {
+    background: #f5f7fa;
+
+    border-color: #cbd3df;
+
+    color: #344054;
+}
+
+/* View task button */
+
+.notification-view {
+    border: 1px solid #2563eb;
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+.notification-view:hover {
+    background: #1d4ed8;
+
+    border-color: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+/* Close button */
+
+.notification-close {
+    position: absolute;
+
+    top: 9px;
+    right: 10px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #98a2b3;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 19px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.notification-close:hover {
+    color: #344054;
+
+    background: #f2f4f7;
+
+    border-radius: 6px;
+}
+
+/* Notification animation */
+
+@keyframes notificationSlideIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(25px)
+            translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .academic-notification {
+        top: 14px;
+        right: 14px;
+        left: 14px;
+
+        width: auto;
+
+        max-width: none;
+
+        padding: 15px;
+    }
+
+    .notification-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .notification-actions button {
+        width: 100%;
+    }
+}

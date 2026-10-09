@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Student Reminder & Guidance System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+<div id="academicNotification" class="academic-notification">
+
+    <div class="notification-icon">
+        🔔
+    </div>
+
+    <div class="notification-content">
+
+        <p class="notification-label">
+            ACADEMIC REMINDER
+        </p>
+
+        <h3 id="notificationTitle">
+            Upcoming Task
+        </h3>
+
+        <p id="notificationMessage">
+            You have an upcoming academic task.
+        </p>
+
+        <div class="notification-actions">
+
+            <button
+                type="button"
+                id="snoozeNotification"
+                class="notification-snooze">
+                Remind me after 10 mins
+            </button>
+
+            <button
+                type="button"
+                id="viewNotificationTask"
+                class="notification-view">
+                View Task
+            </button>
+
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        id="closeNotification"
+        class="notification-close"
+        aria-label="Close notification">
+    </button>
+
+</div>
+
+    <!-- ==========================================
+        SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-symbol">✦</div>
+
+            <div>
+                <h2>Student</h2>
+                <p>Reminder & Guidance</p>
+            </div>
+        </div>
+
+
+        <div class="workspace-title">
+            ✦ WORKSPACE
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>⌂</span>
+                <div>
+                    <strong>Overview</strong>
+                    <small>Dashboard</small>
+                </div>
+            </a>
+
+
+            <a href="mytasks.html" class="nav-item">
+                <span>✓</span>
+                <div>
+                    <strong>My Tasks</strong>
+                    <small>Academic tasks</small>
+                </div>
+            </a>
+
+
+            <a href="calendar.html" class="nav-item">
+                <span>▣</span>
+                <div>
+                    <strong>Calendar</strong>
+                    <small>Deadlines</small>
+                </div>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-section">
+
+            <a href="#" class="nav-item guidance-nav">
+                <span>✦</span>
+
+                <div>
+                    <strong>Guidance</strong>
+                    <small>Study suggestions</small>
+                </div>
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+
+                <div>
+                    <strong>Settings</strong>
+                    <small>Preferences</small>
+                </div>
+            </a>
+
+
+            <a href="login.html" class="nav-item logout">
+                <span>↪</span>
+
+                <div>
+                    <strong>Logout</strong>
+                    <small>Sign out</small>
+                </div>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-header">
+
+            <div class="welcome-area">
+
+                <p class="dashboard-date" id="currentDate">
+                    Friday, October 4
+                </p>
+
+                <h1>
+                    Good morning,
+                    <span id="studentName">Student</span>
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Here's what needs your attention today.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button class="notification-button" title="Notifications">
+                    🔔
+                </button>
+
+
+                <div class="profile-circle" id="profileCircle">
+                    S
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==========================================
+             ACADEMIC DAY
+        =========================================== -->
+
+        <section class="academic-day-card">
+
+            <div class="academic-day-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        YOUR ACADEMIC DAY
+                    </p>
+
+                    <h2>
+                        Stay on top of your priorities
+                    </h2>
+
+                </div>
+
+                <span class="academic-status">
+                    ● On track
+                </span>
+
+            </div>
+
+
+            <div class="academic-overview">
+
+                <div class="overview-item">
+
+                    <span class="overview-number" id="taskCount">
+                        —
+                    </span>
+
+                    <span class="overview-label">
+                        Tasks remaining
+                    </span>
+
+                </div>
+
+
+                <div class="overview-divider"></div>
+
+
+                <div class="overview-item">
+
+                    <span class="overview-number" id="deadlineCount">
+                        —
+                    </span>
+
+                    <span class="overview-label">
+                        Upcoming deadlines
+                    </span>
+
+                </div>
+
+
+                <div class="overview-divider"></div>
+
+
+                <div class="overview-item progress-overview">
+
+                    <span class="overview-number">
+                        78%
+                    </span>
+
+                    <span class="overview-label">
+                        Productivity
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="academic-progress">
+
+                <div class="progress-track">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             TODAY'S FOCUS
+        =========================================== -->
+
+        <section class="focus-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        TODAY'S FOCUS
+                    </p>
+
+                    <h2>
+                        Your upcoming tasks
+                    </h2>
+
+                </div>
+
+
+                <a href="mytasks.html" class="view-all-link">
+                    View all tasks →
+                </a>
+
+            </div>
+
+
+            <div class="task-list" id="taskList">
+
+                <!-- Tasks will be loaded here -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             LOWER SECTION
+        =========================================== -->
+
+        <section class="lower-dashboard">
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="quick-actions-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="section-label">
+                            QUICK ACTIONS
+                        </p>
+
+                        <h2>
+                            Get things done
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+                    <a href="add-task.html" class="quick-action primary">
+
+                        <span class="quick-action-icon">
+                            +
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Add New Task
+                            </strong>
+
+                            <small>
+                                Create a reminder
+                            </small>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a href="calendar.html" class="quick-action">
+
+                        <span class="quick-action-icon">
+                            ▣
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Open Calendar
+                            </strong>
+
+                            <small>
+                                View deadlines
+                            </small>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACADEMIC GUIDANCE -->
+
+            <div class="guidance-card">
+
+                <div class="guidance-symbol">
+                    ✦
+                </div>
+
+
+                <div class="guidance-content">
+
+                    <p class="section-label">
+                        ACADEMIC GUIDANCE
+                    </p>
+
+                    <h2>
+                        Not sure what to work on?
+                    </h2>
+
+                    <p>
+                        Get a simple suggestion about which
+                        academic task you should focus on first.
+                    </p>
+
+                    <button class="guidance-button">
+                        Get Guidance →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script>
+
+        // ==========================================
+        // STUDENT NAME
+        // ==========================================
+
+        const savedName = localStorage.getItem("studentName");
+
+        if (savedName) {
+
+            document.getElementById("studentName").textContent =
+                savedName;
+
+            document.getElementById("profileCircle").textContent =
+                savedName.charAt(0).toUpperCase();
+
+        }
+
+
+
+        // ==========================================
+        // CURRENT DATE
+        // ==========================================
+
+        const today = new Date();
+
+        const dateOptions = {
+            weekday: "long",
+            month: "long",
+            day: "numeric"
+        };
+
+        document.getElementById("currentDate").textContent =
+            today.toLocaleDateString("en-US", dateOptions);
+
+
+
+        // ==========================================
+        // LOAD TASKS FROM DATABASE
+        // ==========================================
+
+        async function loadTasks() {
+
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+
+                window.location.href = "login.html";
+
+                return;
+            }
+
+
+            const taskList =
+                document.getElementById("taskList");
+
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5000/api/tasks",
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        }
+                    }
+                );
+
+
+                const tasks = await response.json();
+
+                console.log("Tasks received:", tasks);
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        tasks.message || "Unable to load tasks."
+                    );
+
+                }
+
+
+                // Clear existing tasks
+
+                taskList.innerHTML = "";
+
+
+                // ==========================================
+                // UPDATE DASHBOARD NUMBERS
+                // ==========================================
+
+                const taskCount =
+                    document.getElementById("taskCount");
+
+                const deadlineCount =
+                    document.getElementById("deadlineCount");
+
+
+                if (taskCount) {
+
+                    taskCount.textContent =
+                        tasks ? tasks.length : 0;
+
+                }
+
+
+                if (deadlineCount) {
+
+                    deadlineCount.textContent =
+                        tasks ? Math.min(tasks.length, 3) : 0;
+
+                }
+
+
+
+                // ==========================================
+                // NO TASKS
+                // ==========================================
+
+                if (!tasks || tasks.length === 0) {
+
+                    taskList.innerHTML = `
+
+                        <div class="no-tasks">
+
+                            <div class="empty-task-icon">
+                                ✓
+                            </div>
+
+                            <h3>
+                                You're all caught up
+                            </h3>
+
+                            <p>
+                                No academic tasks are currently
+                                pending. Add a new task when you
+                                have something to work on.
+                            </p>
+
+                            <a href="add-task.html">
+                                + Add a task
+                            </a>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+
+                // ==========================================
+                // SHOW ONLY FIRST 3 TASKS
+                // ==========================================
+
+                const firstThreeTasks =
+                    tasks.slice(0, 3);
+
+
+
+                // ==========================================
+                // DISPLAY TASKS
+                // ==========================================
+
+                firstThreeTasks.forEach(task => {
+
+                    const deadline =
+                        new Date(task.deadline);
+
+
+                    const formattedDate =
+                        deadline.toLocaleDateString(
+                            "en-US",
+                            {
+                                month: "short",
+                                day: "numeric"
+                            }
+                        );
+
+
+                    const formattedTime =
+                        deadline.toLocaleTimeString(
+                            "en-US",
+                            {
+                                hour: "numeric",
+                                minute: "2-digit"
+                            }
+                        );
+
+
+                    const taskItem =
+                        document.createElement("div");
+
+
+                    taskItem.className =
+                        "task-item";
+
+
+                    taskItem.innerHTML = `
+
+                        <div
+                            class="task-check"
+                            onclick="completeTask('${task._id}')"
+                            title="Mark as completed">
+                        </div>
+
+
+                        <div class="task-information">
+
+                            <span class="task-category">
+                                ${task.subject}
+                            </span>
+
+                            <h3>
+                                ${task.title}
+                            </h3>
+
+                        </div>
+
+
+                        <div class="task-deadline">
+
+                            <span>
+                                DUE
+                            </span>
+
+                            <strong>
+                                ${formattedDate}
+                            </strong>
+
+                            <small>
+                                ${formattedTime}
+                            </small>
+
+                        </div>
+
+                    `;
+
+
+                    taskList.appendChild(taskItem);
+
+                });
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Unable to load tasks:",
+                    error
+                );
+
+
+                taskList.innerHTML = `
+
+                    <div class="no-tasks error-state">
+
+                        <div class="empty-task-icon">
+                            !
+                        </div>
+
+                        <h3>
+                            Unable to load tasks
+                        </h3>
+
+                        <p>
+                            ${error.message}
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        // ==========================================
+        // START LOADING TASKS
+        // ==========================================
+
+        loadTasks();
+
+
+
+        // ==========================================
+        // COMPLETE TASK
+        // ==========================================
+
+        async function completeTask(taskId) {
+
+            const token =
+                localStorage.getItem("token");
+
+
+            if (!token) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            try {
+
+                const response = await fetch(
+                    `http://localhost:5000/api/tasks/${taskId}/complete`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        }
+                    }
+                );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Complete task response:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    alert(
+                        data.message ||
+                        "Unable to complete task."
+                    );
+
+                    return;
+                }
+
+
+                // Reload dashboard tasks
+
+                loadTasks();
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Complete task error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to connect to the server."
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

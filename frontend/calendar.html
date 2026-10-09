@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academic Calendar - Student Reminder & Guidance System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="calendar-page">
+
+    <main class="calendar-container">
+
+        <!-- Header -->
+        <div class="calendar-header">
+
+            <a href="dashboard.html" class="back-button">
+                ← Back to Dashboard
+            </a>
+
+            <p class="calendar-kicker">
+                STUDENT REMINDER & GUIDANCE
+            </p>
+
+            <h1>Academic Calendar</h1>
+
+            <p>
+                View your academic deadlines and tasks by date.
+            </p>
+
+        </div>
+
+
+        <!-- Calendar Card -->
+        <section class="calendar-card">
+
+            <!-- Calendar Top -->
+            <div class="calendar-top">
+
+                <div>
+                    <p class="calendar-label">
+                        YOUR SCHEDULE
+                    </p>
+
+                    <h2 id="monthYear">
+                        September 2026
+                    </h2>
+                </div>
+
+                <div class="calendar-nav">
+
+                    <button id="previousMonth" type="button">
+                        ←
+                    </button>
+
+                    <button id="nextMonth" type="button">
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Week Names -->
+            <div class="calendar-weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <!-- Calendar Dates -->
+            <div id="calendarDays" class="calendar-days"></div>
+
+
+            <!-- Legend -->
+            <div class="calendar-legend">
+
+                <span class="legend-item">
+                    <span class="legend-dot"></span>
+                    Task deadline
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-today"></span>
+                    Today
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Selected Date -->
+        <section class="calendar-tasks">
+
+            <p class="calendar-label">
+                SELECTED DATE
+            </p>
+
+            <h2 id="selectedDateTitle">
+                Select a date
+            </h2>
+
+            <div id="selectedDateTasks" class="selected-date-tasks">
+            </div>
+
+        </section>
+
+
+        <!-- Add Task -->
+        <a href="add-task.html" class="calendar-add-task">
+            + Add New Task
+        </a>
+
+    </main>
+
+
+<script>
+
+let currentDate = new Date();
+
+let tasks = [];
+
+const monthYear =
+    document.getElementById("monthYear");
+
+const calendarDays =
+    document.getElementById("calendarDays");
+
+const previousMonth =
+    document.getElementById("previousMonth");
+
+const nextMonth =
+    document.getElementById("nextMonth");
+
+const selectedDateTitle =
+    document.getElementById("selectedDateTitle");
+
+const selectedDateTasks =
+    document.getElementById("selectedDateTasks");
+
+
+// ===============================
+// LOAD TASKS FROM BACKEND
+// ===============================
+
+async function loadTasks() {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/tasks",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Calendar tasks:", data);
+
+        if (!response.ok) {
+            throw new Error(
+                data.message || "Unable to load tasks."
+            );
+        }
+
+        tasks = data;
+
+        renderCalendar();
+
+    } catch (error) {
+
+        console.error(
+            "Calendar task error:",
+            error
+        );
+
+        calendarDays.innerHTML = `
+            <div class="calendar-error">
+                Unable to load tasks.
+            </div>
+        `;
+    }
+}
+
+
+// ===============================
+// RENDER CALENDAR
+// ===============================
+
+function renderCalendar() {
+
+    calendarDays.innerHTML = "";
+
+    const year =
+        currentDate.getFullYear();
+
+    const month =
+        currentDate.getMonth();
+
+
+    // Month name
+
+    monthYear.textContent =
+        currentDate.toLocaleDateString(
+            "en-US",
+            {
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    // First day of month
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+
+    // Number of days
+
+    const numberOfDays =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    // Today's date
+
+    const today = new Date();
+
+
+    // Empty spaces before first day
+
+    for (
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
+
+        const emptyDay =
+            document.createElement("div");
+
+        emptyDay.className =
+            "calendar-day empty-day";
+
+        calendarDays.appendChild(
+            emptyDay
+        );
+    }
+
+
+    // Create dates
+
+    for (
+        let day = 1;
+        day <= numberOfDays;
+        day++
+    ) {
+
+        const dayElement =
+            document.createElement("button");
+
+        dayElement.type = "button";
+
+        dayElement.className =
+            "calendar-day";
+
+
+        // Date number
+
+        const dayNumber =
+            document.createElement("span");
+
+        dayNumber.className =
+            "day-number";
+
+        dayNumber.textContent =
+            day;
+
+        dayElement.appendChild(
+            dayNumber
+        );
+
+
+        // Check today's date
+
+        if (
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear()
+        ) {
+
+            dayElement.classList.add(
+                "today"
+            );
+        }
+
+
+        // Find tasks for this date
+
+        const dayTasks =
+            tasks.filter(task => {
+
+                const taskDate =
+                    new Date(task.deadline);
+
+                return (
+                    taskDate.getFullYear() === year &&
+                    taskDate.getMonth() === month &&
+                    taskDate.getDate() === day
+                );
+
+            });
+
+
+        // ===============================
+        // TASK DOTS
+        // ===============================
+
+        if (dayTasks.length > 0) {
+
+            const dotsContainer =
+                document.createElement("div");
+
+            dotsContainer.className =
+                "task-dots";
+
+
+            // Show maximum 3 dots
+
+            const numberOfDots =
+                Math.min(
+                    dayTasks.length,
+                    3
+                );
+
+
+            for (
+                let i = 0;
+                i < numberOfDots;
+                i++
+            ) {
+
+                const dot =
+                    document.createElement("span");
+
+                dot.className =
+                    "task-dot";
+
+                dotsContainer.appendChild(
+                    dot
+                );
+            }
+
+
+            // If more than 3 tasks
+
+            if (dayTasks.length > 3) {
+
+                const more =
+                    document.createElement("span");
+
+                more.className =
+                    "task-count";
+
+                more.textContent =
+                    "+" + (dayTasks.length - 3);
+
+                dotsContainer.appendChild(
+                    more
+                );
+            }
+
+
+            dayElement.appendChild(
+                dotsContainer
+            );
+
+            dayElement.classList.add(
+                "has-task"
+            );
+        }
+
+
+        // Click date
+
+        dayElement.addEventListener(
+            "click",
+            function () {
+
+                showDateTasks(
+                    year,
+                    month,
+                    day
+                );
+
+            }
+        );
+
+
+        calendarDays.appendChild(
+            dayElement
+        );
+
+    }
+
+}
+
+
+// ===============================
+// SHOW TASKS FOR SELECTED DATE
+// ===============================
+
+function showDateTasks(
+    year,
+    month,
+    day
+) {
+
+    const clickedDate =
+        new Date(
+            year,
+            month,
+            day
+        );
+
+
+    selectedDateTitle.textContent =
+        clickedDate.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                year: "numeric"
+            }
+        );
+
+
+    // Find tasks
+
+    const dayTasks =
+        tasks.filter(task => {
+
+            const taskDate =
+                new Date(task.deadline);
+
+            return (
+                taskDate.getFullYear() === year &&
+                taskDate.getMonth() === month &&
+                taskDate.getDate() === day
+            );
+
+        });
+
+
+    selectedDateTasks.innerHTML = "";
+
+
+    // No tasks
+
+    if (dayTasks.length === 0) {
+
+        selectedDateTasks.innerHTML = `
+            <div class="calendar-empty">
+
+                <div class="empty-calendar-icon">
+                    ✓
+                </div>
+
+                <h3>No tasks scheduled</h3>
+
+                <p>
+                    You don't have any academic
+                    tasks for this date.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    // Display tasks
+
+    dayTasks.forEach(task => {
+
+        const taskDate =
+            new Date(task.deadline);
+
+
+        const taskElement =
+            document.createElement("div");
+
+        taskElement.className =
+            "calendar-task";
+
+
+        taskElement.innerHTML = `
+
+            <div class="calendar-task-icon">
+                📚
+            </div>
+
+            <div class="calendar-task-info">
+
+                <h3>
+                    ${task.title}
+                </h3>
+
+                <p>
+                    ${task.subject}
+                </p>
+
+                <small>
+                    Deadline:
+                    ${taskDate.toLocaleTimeString(
+                        "en-US",
+                        {
+                            hour: "numeric",
+                            minute: "2-digit"
+                        }
+                    )}
+                </small>
+
+            </div>
+
+            <span class="
+                priority-${task.priority.toLowerCase()}
+            ">
+                ${task.priority}
+            </span>
+
+        `;
+
+
+        selectedDateTasks.appendChild(
+            taskElement
+        );
+
+    });
+
+}
+
+
+// ===============================
+// MONTH NAVIGATION
+// ===============================
+
+previousMonth.addEventListener(
+    "click",
+    function () {
+
+        currentDate.setMonth(
+            currentDate.getMonth() - 1
+        );
+
+        renderCalendar();
+
+    }
+);
+
+
+nextMonth.addEventListener(
+    "click",
+    function () {
+
+        currentDate.setMonth(
+            currentDate.getMonth() + 1
+        );
+
+        renderCalendar();
+
+    }
+);
+
+
+// ===============================
+// START
+// ===============================
+
+loadTasks();
+
+</script>
+
+</body>
+</html>
